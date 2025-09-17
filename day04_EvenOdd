@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main()
+{ int arr[50],n,i,EvenCount=0,OddCount=0;
+printf("enter number of elements in array:\n");
+scanf("%d",&n);
+
+printf("enter array elements:\n");
+for(i=0;i<n;i++)
+scanf("%d",&arr[i]);
+
+for(i=0;i<n;i++)
+if(arr[i]%2==0)
+{
+   EvenCount++;
+}
+else
+{
+   OddCount++;
+}
+
+printf("number of even elements are:%d\n",EvenCount);
+printf("number of odd elements are:%d\n",OddCount);
+
+return 0;
+}
