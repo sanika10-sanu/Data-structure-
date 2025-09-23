@@ -1,0 +1,42 @@
+#include <stdio.h>
+int findThirdLargest(int arr[], int n) {
+    if (n < 3) {
+        printf("Array has less than 3 elements. Cannot find the 3rd largest.\n");
+        return -1; 
+    }
+int first, second, third;
+first = second = third = arr[0]; // Initialize with the first element
+ for (int i = 0; i < n; i++) {
+        if (arr[i] > first) {
+            third = second;
+            second = first;
+            first = arr[i];
+        } else if (arr[i] > second && arr[i] != first) {
+            third = second;
+            second = arr[i];
+        } else if (arr[i] > third && arr[i] != second && arr[i] != first) {
+            third = arr[i];
+        }
+    }
+ return third;
+}
+
+int main() {
+    int arr[] = {12, 13, 1, 10, 34, 16};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int thirdLargest = findThirdLargest(arr, n);
+
+    if (thirdLargest != -1) { // Check if a valid result was returned
+        printf("The 3rd largest element is: %d\n", thirdLargest);
+    }
+
+    int arr2[] = {5, 5, 5};
+    n = sizeof(arr2) / sizeof(arr2[0]);
+    thirdLargest = findThirdLargest(arr2, n);
+    if (thirdLargest != -1) {
+        printf("The 3rd largest element in {5,5,5} is: %d\n", thirdLargest);
+    }
+
+    return 0;
+}
